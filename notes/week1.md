@@ -49,7 +49,7 @@
   - Function calls can only be pushed or popped off the top, so it maintains a sequential ordering, FILO
 - For each call the stack should store a return address, so the program can continue execution from where it left off
 
-![](./Stack Layout.JPG)
+![Stack_Layout](./Stack Layout.JPG)
 
 - Very good explanation of the stack and it's security flaws [here](http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/)
 
