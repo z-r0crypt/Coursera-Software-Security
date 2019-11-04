@@ -12,14 +12,29 @@
 - White-box approach: focuses on the code itself, or internals of the program
 - Black-box approach: largely ignores the internals of the program and looks at it from the outside as a whole  
 
+# Buffer Overflow
+- A buffer is any contiguous chunk of memory assiociated with a variable value or field
+- Overflow refers to any time a program tries to read/write more data than the buffer can hold
+- Since most compilers assume that there will only be as much data is needed and allocated, it will read whatever data happens to come next in memory
+- Ideally, you would write code to check for out of bounds indexes, as this undefined area can be used maliciously
+
+### History of Buffer overflows
+
+- Morris Worm - 1998
+- CodeRed - 2001
+- SQL Slammer - 2003
+- X11 Server buffer overflow - discovered in 2014; stayed there for 23 years
 
 # Memory Layout Overview
 - The process itself believes that it owns all of the memory
+
 - From bottom to top:
+  - 0x00000000
   - Text segment (the code)
   - Initialized data (`static count int y = 10;`)
   - Unitialized data (`static int x;`)
   - The Heap - area that malloc manages
+  - Runtime Area
   - The Stack - holds local variables along with metadata that the program uses to call and return from functions
   - Command line arguments and environment variables, these are set when the process starts
 
@@ -33,6 +48,9 @@
 - Call stack is a specialized version of a stack.
   - Function calls can only be pushed or popped off the top, so it maintains a sequential ordering, FILO
 - For each call the stack should store a return address, so the program can continue execution from where it left off
+
+![](./Stack Layout.JPG)
+
 - Very good explanation of the stack and it's security flaws [here](http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/)
 
 **Note:** 
@@ -58,19 +76,6 @@
   - `%eip = 4(%esp)`
 
 
-# Buffer Overflow
-- A buffer is any contiguous chunk of memory assiociated with a variable value or field
-- Overflow refers to any time a program tries to read/write more data than the buffer can hold
-- Since most compilers assume that there will only be as much data is needed and allocated, it will read whatever data happens to come next in memory
-- Ideally, you would write code to check for out of bounds indexes, as this undefined area can be used maliciously
-
-### History of Buffer overflows
-
-* Morris Worm - 1998
-* CodeRed - 2001
-* SQL Slammer - 2003
-
-* X11 Server buffer overflow - discovered in 2014; stayed there for 23 years
 
 ### Code Injection
 
