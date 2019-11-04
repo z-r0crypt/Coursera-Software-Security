@@ -33,7 +33,6 @@
 - Call stack is a specialized version of a stack.
   - Function calls can only be pushed or popped off the top, so it maintains a sequential ordering, FILO
 - For each call the stack should store a return address, so the program can continue execution from where it left off
-- 
 - Very good explanation of the stack and it's security flaws [here](http://arstechnica.com/security/2015/08/how-security-flaws-work-the-buffer-overflow/)
 
 **Note:** 
@@ -59,12 +58,19 @@
   - `%eip = 4(%esp)`
 
 
-
 # Buffer Overflow
 - A buffer is any contiguous chunk of memory assiociated with a variable value or field
 - Overflow refers to any time a program tries to read/write more data than the buffer can hold
 - Since most compilers assume that there will only be as much data is needed and allocated, it will read whatever data happens to come next in memory
 - Ideally, you would write code to check for out of bounds indexes, as this undefined area can be used maliciously
+
+### History of Buffer overflows
+
+* Morris Worm - 1998
+* CodeRed - 2001
+* SQL Slammer - 2003
+
+* X11 Server buffer overflow - discovered in 2014; stayed there for 23 years
 
 ### Code Injection
 
