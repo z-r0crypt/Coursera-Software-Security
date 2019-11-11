@@ -99,8 +99,8 @@
 - One approach is to guess many addresses
 - Without address randomization, the stack will always start from the same fixed address
   - Unless the code is heavily recursive, the stack won't grow very deeply
-- Another approach is to use a *noop sled*
-  - A noop sled is an instruction that just moves the pointer to the next byte
+- Another approach is to use a *NOP sled*
+  - A NOP sled is an instruction which means 'No OPeration' that just moves the pointer to the next byte
   - Using a bunch of these as padding will make it more likely that the pointer will hit one of your addresses and just move along until it gets to the target code
 - This is known as a stack smashing attack
   - This can violate both integrity and availability
